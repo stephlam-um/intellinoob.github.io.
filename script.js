@@ -4,13 +4,7 @@ const closeButton = document.querySelector("[data-close]");
 const confettiButtons = document.querySelectorAll("[data-confetti]");
 const letter = document.querySelector("[data-letter]");
 
-const slides = Array.from(document.querySelectorAll("[data-slide]"));
-const dotsContainer = document.querySelector("[data-dots]");
-const prevButton = document.querySelector("[data-prev]");
-const nextButton = document.querySelector("[data-next]");
 const noButton = document.querySelector("[data-no]");
-
-let activeIndex = 0;
 
 const openModal = () => {
   modal.classList.add("is-visible");
@@ -62,46 +56,9 @@ const observer = new IntersectionObserver(
 
 observer.observe(letter);
 
-const createDots = () => {
-  dotsContainer.innerHTML = "";
-  slides.forEach((_, index) => {
-    const dot = document.createElement("button");
-    dot.className = "slider__dot";
-    dot.type = "button";
-    dot.addEventListener("click", () => setActiveSlide(index));
-    dotsContainer.appendChild(dot);
-  });
-};
-
-const updateDots = () => {
-  const dots = Array.from(dotsContainer.children);
-  dots.forEach((dot, index) => {
-    dot.classList.toggle("is-active", index === activeIndex);
-  });
-};
-
-const setActiveSlide = (index) => {
-  activeIndex = Math.max(0, Math.min(index, slides.length - 1));
-  slides.forEach((slide, i) => {
-    slide.classList.toggle("is-active", i === activeIndex);
-  });
-  prevButton.disabled = activeIndex === 0;
-  nextButton.disabled = activeIndex === slides.length - 1;
-  updateDots();
-};
-
-prevButton.addEventListener("click", () => setActiveSlide(activeIndex - 1));
-nextButton.addEventListener("click", () => setActiveSlide(activeIndex + 1));
-
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal.classList.contains("is-visible")) {
     closeModal();
-  }
-  if (event.key === "ArrowRight") {
-    setActiveSlide(activeIndex + 1);
-  }
-  if (event.key === "ArrowLeft") {
-    setActiveSlide(activeIndex - 1);
   }
 });
 
@@ -185,17 +142,13 @@ const setupNoButton = () => {
   noButton.addEventListener("touchstart", dodge);
 };
 
-const init = async () => {
-  try {
-    const response = await fetch("content.json");
-    const data = await response.json();
-    renderContent(data);
-  } catch (error) {
-    console.error("Failed to load content.json", error);
+const init = () => {
+  if (window.CONTENT) {
+    renderContent(window.CONTENT);
+  } else {
+    console.error("Missing content.js. Make sure content.js is loaded.");
   }
 
-  createDots();
-  setActiveSlide(0);
   setupNoButton();
 };
 

@@ -15,84 +15,66 @@
   <body>
     <div class="veil"></div>
 
-    <div class="slider">
-      <nav class="slider__nav">
-        <div class="slider__dots" data-dots></div>
-        <div class="slider__controls">
-          <button class="btn btn--ghost" data-prev>Back</button>
-          <button class="btn" data-next>Next</button>
+    <header class="hero">
+      <div class="hero__glow"></div>
+      <div class="hero__content">
+        <p class="eyebrow" data-hero-eyebrow>For Esther</p>
+        <h1 data-hero-title>Will you be my Valentine?</h1>
+        <p class="subtitle" data-hero-subtitle>
+          A small, shimmering universe built just for you, Esther — with all the soft corners,
+          warm light, and impossible luck of finding you.
+        </p>
+        <div class="hero__cta">
+          <button class="btn" data-open-letter>Open the letter</button>
         </div>
-      </nav>
+      </div>
+      <div class="hero__card" aria-hidden="true">
+        <div class="card__frame">
+          <div class="card__heart"></div>
+          <p class="card__title">Esther</p>
+          <p class="card__note">You make every day softer.</p>
+        </div>
+      </div>
+    </header>
 
-      <section class="slide is-active" data-slide>
-        <header class="hero">
-          <div class="hero__glow"></div>
-          <div class="hero__content">
-            <p class="eyebrow" data-hero-eyebrow>For Esther</p>
-            <h1 data-hero-title>Will you be my Valentine?</h1>
-            <p class="subtitle" data-hero-subtitle>
-              A small, shimmering universe built just for you, Esther — with all the soft corners,
-              warm light, and impossible luck of finding you.
-            </p>
-            <div class="hero__cta">
-              <button class="btn" data-open-letter>Open the letter</button>
-            </div>
-          </div>
-          <div class="hero__card" aria-hidden="true">
-            <div class="card__frame">
-              <div class="card__heart"></div>
-              <p class="card__title">Esther</p>
-              <p class="card__note">You make every day softer.</p>
-            </div>
-          </div>
-        </header>
-      </section>
-
-      <section class="slide" data-slide>
-        <div class="section letter">
-          <div class="section__title">
-            <h2 data-letter-title>A Letter, Unfolding</h2>
-            <p data-letter-subtitle>Hover, tap, or breathe — it opens when you are ready.</p>
-          </div>
-          <div class="letter__wrap" data-letter>
-            <div class="letter__panel" data-letter-body></div>
-          </div>
+    <main>
+      <section class="section letter" id="letter">
+        <div class="section__title">
+          <h2 data-letter-title>A Letter, Unfolding</h2>
+          <p data-letter-subtitle>Hover, tap, or breathe — it opens when you are ready.</p>
+        </div>
+        <div class="letter__wrap" data-letter>
+          <div class="letter__panel" data-letter-body></div>
         </div>
       </section>
 
-      <section class="slide" data-slide>
-        <div class="section reasons">
-          <div class="section__title">
-            <h2 data-reasons-title>Reasons I Adore You</h2>
-            <p data-reasons-subtitle>Some are big, some are tiny, all are true.</p>
-          </div>
-          <div class="reasons__grid" data-reasons-grid></div>
+      <section class="section reasons" id="reasons">
+        <div class="section__title">
+          <h2 data-reasons-title>Reasons I Adore You</h2>
+          <p data-reasons-subtitle>Some are big, some are tiny, all are true.</p>
         </div>
+        <div class="reasons__grid" data-reasons-grid></div>
       </section>
 
-      <section class="slide" data-slide>
-        <div class="section timeline">
-          <div class="section__title">
-            <h2 data-timeline-title>Our Little Constellations</h2>
-            <p data-timeline-subtitle>A few sparkling points in the sky we share.</p>
-          </div>
-          <div class="timeline__track" data-timeline></div>
+      <section class="section timeline" id="timeline">
+        <div class="section__title">
+          <h2 data-timeline-title>Our Little Constellations</h2>
+          <p data-timeline-subtitle>A few sparkling points in the sky we share.</p>
         </div>
+        <div class="timeline__track" data-timeline></div>
       </section>
 
-      <section class="slide" data-slide>
-        <div class="section yes">
-          <div class="yes__card">
-            <h2 data-final-title>Esther, be my Valentine?</h2>
-            <p data-final-subtitle>I promise to keep loving you with intention, softness, and a little magic.</p>
-            <div class="yes__actions">
-              <button class="btn" data-confetti data-yes>Yes</button>
-              <button class="btn btn--ghost" data-no>No</button>
-            </div>
+      <section class="section yes" id="yes">
+        <div class="yes__card">
+          <h2 data-final-title>Esther, be my Valentine?</h2>
+          <p data-final-subtitle>I promise to keep loving you with intention, softness, and a little magic.</p>
+          <div class="yes__actions">
+            <button class="btn" data-confetti data-yes>Yes</button>
+            <button class="btn btn--ghost" data-no>No</button>
           </div>
         </div>
       </section>
-    </div>
+    </main>
 
     <footer class="footer">
       <p>Made with a heart full of you.</p>
@@ -110,6 +92,7 @@
       </div>
     </div>
 
+    <script src="content.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
